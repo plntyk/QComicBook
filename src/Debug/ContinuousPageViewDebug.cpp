@@ -126,4 +126,4 @@ void ContinuousPageViewDebug::drawPageRectangles()
     }
 }
 
-};
+}
