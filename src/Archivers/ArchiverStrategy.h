@@ -98,9 +98,9 @@ namespace QComicBook
         void addExtension(const QString &ext);
 
     private:
-        FileSignature signature;
         QString name;
         bool supported;
+        FileSignature signature;
         QStringList executables;
         QStringList extensions;
         QStringList extractArgs;

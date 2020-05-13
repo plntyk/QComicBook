@@ -34,9 +34,9 @@ namespace QComicBook
 
     private:
         QString m_name;
+        bool m_supported;
         QStringList m_executables;
         QStringList m_extensions;
-        bool m_supported;
     };
 }
 

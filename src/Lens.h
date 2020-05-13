@@ -39,10 +39,10 @@ namespace QComicBook
     private:
         QSharedPointer<QPixmap> m_pixmap;
         QElapsedTimer *m_time;
+        int m_delay;
         QSize m_size;
         QColor m_background;
 	double m_ratio;
-        int m_delay;
     };
 }
 

@@ -59,11 +59,11 @@ namespace QComicBook
 
         private:
             PageViewBase *m_view;
-            QPixmap *m_pixmap;
             int xoff, yoff;
             QMatrix rmtx;
             QSize m_sourceSize; //image size without scaling
             QSize m_scaledSize; //image size with scaling and rotation
+            QPixmap *m_pixmap;
 	};
 }
 
