@@ -8,3 +8,9 @@ CMakeCache.txt
 *.cmake
 *.qm
 qcomicbook
+moc_*.cpp
+moc_*.cpp_parameters
+__/
+config.h
+qrc_*.cpp
+
