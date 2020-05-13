@@ -100,7 +100,7 @@ void PageRedrawJob::drawPageNumber(int page, QPainter &p, int x, int y)
 {
     const QString pagestr(QString::number(page + 1));
     const QFontMetrics mtr(p.fontMetrics());
-    const int txtw(mtr.width(pagestr));
+    const int txtw(mtr.horizontalAdvance(pagestr));
     p.setPen(Qt::black);
     p.fillRect(x - txtw - 5, y - 2 - mtr.height(), txtw + 5, mtr.height() + 4, Qt::white);
     p.drawText(x - txtw - 4, y - 4, pagestr);
