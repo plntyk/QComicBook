@@ -15,6 +15,7 @@ IF(CMAKE_BUILD_TYPE STREQUAL "Release")
     ADD_DEFINITIONS( -DQT_NO_DEBUG_OUTPUT )
 ENDIF()
 
+#add_compile_options(-Wall -Wextra -pedantic)
 #set(CMAKE_AUTOMOC ON)
 
 SET(QT_MIN_VERSION "5.4.0")
