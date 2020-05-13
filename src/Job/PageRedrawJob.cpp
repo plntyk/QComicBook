@@ -59,7 +59,7 @@ void PageRedrawJob::execute()
     QPainter p(m_result);
     p.setRenderHint(QPainter::SmoothPixmapTransform, m_props.smoothScaling);
 
-    p.setWorldMatrix(*m_matrix);
+    p.setWorldTransform(QTransform(*m_matrix));
     p.setWorldMatrixEnabled(true);
 
     if (m_image[1]) // 2 pages mode
