@@ -873,7 +873,7 @@ Donar es sencillo - ¡simplemente pincha en el bottón de Flattr que encontrará
 <context>
     <name>QComicBook::ArchiversConfiguration</name>
     <message>
-        <location filename="../src/Archivers/ArchiversConfiguration.cpp" line="152"/>
+        <location filename="../src/Archivers/ArchiversConfiguration.cpp" line="154"/>
         <source>Some archives are not supported because essential external utilities are missing. Please install required executables and restart QComicBook. Note: if more than one executable is listed for given archive type, then it is sufficient to install  just one of them.</source>
         <translation>Algunos archivos no están soportados porque algunas utilidades externas no están disponibles en el sistema. Por favor, instala los ejecutables necesarios y reinicia QComicBook. Nota: si aparece más de un ejecutable disponible en la lista para un determinado tipo de archivo, será suficiente con instalar sólo uno de ellos.</translation>
     </message>

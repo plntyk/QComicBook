@@ -873,7 +873,7 @@ Donating is easy - just click the Flattr button below! Note: You can access this
 <context>
     <name>QComicBook::ArchiversConfiguration</name>
     <message>
-        <location filename="../src/Archivers/ArchiversConfiguration.cpp" line="152"/>
+        <location filename="../src/Archivers/ArchiversConfiguration.cpp" line="154"/>
         <source>Some archives are not supported because essential external utilities are missing. Please install required executables and restart QComicBook. Note: if more than one executable is listed for given archive type, then it is sufficient to install  just one of them.</source>
         <translation>由于缺少外部支持文件，一些文档不能被支持，请安装需要的文件，然后重启QComicBook。
 如果存在多种支持文件，只选择其中一种即可。</translation>

@@ -839,7 +839,7 @@ Poskytnutí daru je jednoduché - stačí klepnout na tlačítko &quot;Flattr&qu
 <context>
     <name>QComicBook::ArchiversConfiguration</name>
     <message>
-        <location filename="../src/Archivers/ArchiversConfiguration.cpp" line="152"/>
+        <location filename="../src/Archivers/ArchiversConfiguration.cpp" line="154"/>
         <source>Some archives are not supported because essential external utilities are missing. Please install required executables and restart QComicBook. Note: if more than one executable is listed for given archive type, then it is sufficient to install  just one of them.</source>
         <translation>Některé archivy nejsou podporovány z toho důvodu, že chybí základní vnější pomůcky. Nainstalujte, prosím, požadované programy a spusťte QComicBook znovu. Poznámka: pokud je pro daný typ archivu vypsáno více než jeden program, postačí nainstalování jen jednoho z nich.</translation>
     </message>
