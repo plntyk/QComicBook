@@ -32,13 +32,13 @@ void P7zipArchiverStrategy::configure()
 
     setExecutables("7z", "7zr");
 
-    if (which("7z") != QString::null)
+    if (which("7z") != QString())
     {
         setExtractArguments("7z x @F");
         setListArguments("7z l @F");
         setSupported();
     }
-    else if (which("7zr") != QString::null)
+    else if (which("7zr") != QString())
     {
         setExtractArguments("7zr x @F");
         setListArguments("7zr l @F");

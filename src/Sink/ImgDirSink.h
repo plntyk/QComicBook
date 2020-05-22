@@ -108,7 +108,7 @@ namespace QComicBook
 			virtual bool supportsNext() const;
 
 			//! Returns the next filename to open.
-			/* @return next filename or QString::null */
+			/* @return next filename or QString() */
 			virtual QString getNext() const;
 
 			virtual QString getPrevious() const;

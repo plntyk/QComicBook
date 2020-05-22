@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="fr_FR">
+<TS version="2.1" language="fr_FR">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -698,6 +698,25 @@ Voulez-vous le supprimer ?</translation>
     </message>
 </context>
 <context>
+    <name>ContinuousPageViewDebug</name>
+    <message>
+        <source>Continuous View Debug</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Fermer</translation>
+    </message>
+</context>
+<context>
     <name>DonationDialog</name>
     <message>
         <source>Please donate QComicBook!</source>
@@ -790,6 +809,21 @@ Contribuer est facile - vous n&apos;avez qu&apos;à cliquer sur bouton &quot;Fla
     <message>
         <source>Mbytes</source>
         <translation type="obsolete">Мbytes</translation>
+    </message>
+</context>
+<context>
+    <name>MemoryDebug</name>
+    <message>
+        <source>Memory Debug</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Fermer</translation>
     </message>
 </context>
 <context>
@@ -950,6 +984,34 @@ Voulez-vous le supprimer ?</translation>
     <message>
         <source>Can&apos;t initialize QComicBook directories</source>
         <translation>Impossible d&apos;initialiser le répertoire de QComicBook</translation>
+    </message>
+    <message>
+        <source>Debug</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Continuous View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Memory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disable auto-refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Refresh every 1s.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Refresh every 5s.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Refresh every 30s.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

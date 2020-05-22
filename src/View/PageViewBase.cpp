@@ -29,8 +29,8 @@ const float PageViewBase::JUMP_FACTOR = 0.85f;
 
 PageViewBase::PageViewBase(QWidget *parent, int physicalPages, const ViewProperties &props)
     : QGraphicsView(parent)
-    , m_physicalPages(physicalPages)
     , props(props)
+    , m_physicalPages(physicalPages)
     , smallcursor(0)
     , lens(0)
 {

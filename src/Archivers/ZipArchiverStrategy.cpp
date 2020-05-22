@@ -32,7 +32,7 @@ void ZipArchiverStrategy::configure()
     addExtension(".cbr");
     setExecutables("unzip");
 
-    if (which("unzip") != QString::null)
+    if (which("unzip") != QString())
     {
         setExtractArguments("unzip @F");
         setListArguments("unzip -l @F");

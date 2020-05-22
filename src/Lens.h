@@ -18,7 +18,7 @@
 #include <QColor>
 
 class QPixmap;
-class QTime;
+class QElapsedTimer;
 
 namespace QComicBook
 {
@@ -38,11 +38,11 @@ namespace QComicBook
 
     private:
         QSharedPointer<QPixmap> m_pixmap;
-        QTime *m_time;
+        QElapsedTimer *m_time;
+        int m_delay;
         QSize m_size;
         QColor m_background;
 	double m_ratio;
-        int m_delay;
     };
 }
 

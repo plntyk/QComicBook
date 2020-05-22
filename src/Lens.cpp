@@ -14,9 +14,9 @@
 #include <QPainter>
 #include <QStyleOptionGraphicsItem>
 #include <QPixmap>
-#include <QTime>
 #include <QGraphicsScene>
 #include "ComicBookDebug.h"
+#include <QElapsedTimer>
 
 using namespace QComicBook;
 
@@ -139,7 +139,7 @@ QVariant Lens::itemChange(GraphicsItemChange change, const QVariant &value)
                 }
                 else
                 {
-                    m_time = new QTime();
+                    m_time = new QElapsedTimer();
                     m_time->start();
                 }
         }

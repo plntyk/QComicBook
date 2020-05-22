@@ -51,10 +51,10 @@ namespace QComicBook
         
     private:
         int m_pageNum; //number of physical page
-        Page *m_image[2];
-        QSize pageSize; //size of 1 or 2 pages without scaling
-        bool estimated;
         bool m_twoPages; //whether this widget holds one or two pages; this is independent from current two pages mode setting
+        QSize pageSize; //size of 1 or 2 pages without scaling
+        Page *m_image[2];
+        bool estimated;
 
         friend class ContinuousPageViewDebug;
     };

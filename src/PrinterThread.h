@@ -41,12 +41,12 @@ namespace QComicBook
 
     private:
         QMutex m_printMtx;
-        bool m_abort;
-        QSharedPointer<QPrinter> m_printer;
         QSharedPointer<ImgSink> m_sink;
+        QSharedPointer<QPrinter> m_printer;
         QAbstractPrintDialog::PrintRange m_range;
         int m_from;
         int m_to;
+        bool m_abort;
     };
 }
 

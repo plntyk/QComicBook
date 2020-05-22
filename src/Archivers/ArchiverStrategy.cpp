@@ -75,7 +75,7 @@ void ArchiverStrategy::setExecutables(const QString &exec1, const QString &exec2
 {
     executables.clear();
     executables.append(exec1);
-    if (exec2 != QString::null)
+    if (exec2 != QString())
     {
         executables.append(exec2);
     }

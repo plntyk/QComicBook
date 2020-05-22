@@ -34,13 +34,13 @@ void RarArchiverStrategy::configure()
     addExtension(".cbr");
     setExecutables("rar", "unrar");
 
-    if (which("rar") != QString::null)
+    if (which("rar") != QString())
     {
         setExtractArguments("rar x @F");
         setListArguments("rar lb @F");
         setSupported();
     }
-    else if (which("unrar") != QString::null)
+    else if (which("unrar") != QString())
     {
         FILE *f;
         //
@@ -70,7 +70,7 @@ void RarArchiverStrategy::configure()
             setSupported();
         }
     }
-    else if (which("unrar-free") != QString::null) //some distros rename free unrar like this
+    else if (which("unrar-free") != QString()) //some distros rename free unrar like this
     {
         setExtractArguments("unrar-free -x @F");
         setListArguments("unrar-free -t @F");

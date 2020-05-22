@@ -103,7 +103,7 @@ ComicMainWindow::ComicMainWindow(QWidget *parent): QMainWindow(parent), currpage
     viewTypeActions->addAction(actionFrameView);
     connect(viewTypeActions, SIGNAL(triggered(QAction *)), this, SLOT(changeViewType(QAction *)));
        
-    actionExitFullScreen = new QAction(QString::null, this);
+    actionExitFullScreen = new QAction(QString(), this);
     actionExitFullScreen->setShortcut(tr("Escape"));
     addAction(actionExitFullScreen);
 
@@ -1083,7 +1083,7 @@ void ComicMainWindow::savePageAs()
                         {
 				tmpmsg += " (" + tr("page") + " " + QString::number(currpage + i + 1) + ")";
                         }
-			QString fname = QFileDialog::getSaveFileName(this, tmpmsg, QString::null, "Images (*.jpg *.png)");
+			QString fname = QFileDialog::getSaveFileName(this, tmpmsg, QString(), "Images (*.jpg *.png)");
 			if (fname.isEmpty())
                         {
                             break;
@@ -1123,7 +1123,7 @@ void ComicMainWindow::bookmarkSelected(QAction *action)
         Bookmark b;
         if (bookmarks->get(action, b))
         {
-                if (b.getName() != QString::null)
+                if (b.getName() != QString())
                 {
                         QString fname = b.getName();
                         if (sink && fname == sink->getFullName()) //is this comicbook already opened?
