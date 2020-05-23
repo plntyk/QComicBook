@@ -36,7 +36,7 @@ SimplePageView::SimplePageView(QWidget *parent, int physicalPages, const ViewPro
     _DEBUG;
 
     recreateComicPageImage();
-    
+
     setBackground(props.background());
     setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
 }
@@ -149,9 +149,9 @@ void SimplePageView::gotoPage(int n)
 
         ComicBookSettings &cfg(ComicBookSettings::instance());
         if (cfg.preloadPages())
-        {   
+        {
             n = nextPage(n);
-            _DEBUG << "preloading" << n;            
+            _DEBUG << "preloading" << n;
             addRequest(n, props.twoPagesMode() && n < numOfPages()); // request two pages if not last page
         }
     }

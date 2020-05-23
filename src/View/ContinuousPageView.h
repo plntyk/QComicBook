@@ -57,16 +57,16 @@ namespace QComicBook
         virtual void gotoPage(int n);
         virtual void scrollToTop();
         virtual void scrollToBottom();
-        
+
     public:
         ContinuousPageView(QWidget *parent, int physicalPages, const ViewProperties& props);
         virtual ~ContinuousPageView();
-            
+
         virtual int visiblePages() const;
         virtual int viewWidth() const;
         virtual void setNumOfPages(int n);
         virtual int currentPage() const;
-        
+
     private:
         QVector<ComicPageImage*> imgLabel;
         CoordinateRangeList<int> m_ypos;

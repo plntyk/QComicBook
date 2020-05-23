@@ -27,7 +27,7 @@ namespace QComicBook
 	using namespace Utility;
 
 	class ComicMainWindow;
-        
+
 	class ComicBookSettings: public QObject
 	{
 		Q_OBJECT

@@ -41,7 +41,7 @@ FrameView::FrameView(QWidget *parent, int physicalPages, const ViewProperties& p
 	scene->addItem(m_frame);
 
     ///setWidgetResizable(true);
-    
+
     setBackground(props.background());
     setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
 }
@@ -50,7 +50,7 @@ FrameView::~FrameView()
 {
 
 }
-			
+
 void FrameView::setImage(const Page &img1)
 {
     _DEBUG << img1.getNumber();
@@ -61,7 +61,7 @@ void FrameView::setImage(const Page &img1)
 }
 
 void FrameView::setImage(const Page &img1, const Page &img2)
-{   
+{
     _DEBUG << img1.getNumber();
     if (img1.getNumber() == m_currentPage)
     {
@@ -135,9 +135,9 @@ void FrameView::gotoPage(int n)
 
         ComicBookSettings &cfg(ComicBookSettings::instance());
         if (cfg.preloadPages() && n < numOfPages())
-        {   
+        {
             ++n;
-            _DEBUG << "preloading" << n;            
+            _DEBUG << "preloading" << n;
             addRequest(n, false);
         }
     }
@@ -153,7 +153,7 @@ void FrameView::scrollToBottom()
 {
 	verticalScrollBar()->triggerAction(QAbstractSlider::SliderToMaximum);
 }
-            
+
 void FrameView::propsChanged()
 {
 	m_frames.sort(props.mangaMode());

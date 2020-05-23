@@ -35,7 +35,7 @@ ComicBookCfgDialog::ComicBookCfgDialog(QWidget *parent, ComicBookSettings *cfg):
     //
     // background color
     pb_color->setColor(cfg->background());
-    
+
     connect(pb_color, SIGNAL(clicked()), this, SLOT(showBackgroundDialog()));
 
     cb_hidetoolbar->setChecked(cfg->fullScreenHideToolbar());

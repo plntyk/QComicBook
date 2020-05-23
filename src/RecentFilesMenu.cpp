@@ -55,7 +55,7 @@ void RecentFilesMenu::add(const QString &fname)
     a->setData(fname);
     insertAction(actions().first(), a);
 
-    
+
     //
     // remove actions if max number of actions is exceeded
     if (maxSize > 0)

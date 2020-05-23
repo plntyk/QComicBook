@@ -31,7 +31,7 @@ namespace QComicBook
 
         private Q_SLOTS:
             void refreshClicked();
-          
+
         private:
             void appendObjectCount(const QString &className, int count, int total);
     };

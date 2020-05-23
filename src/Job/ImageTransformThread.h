@@ -18,7 +18,7 @@
 #include <QMutex>
 #include <QWaitCondition>
 
-namespace QComicBook 
+namespace QComicBook
 {
     class ImageTransformJob;
     class ImageJobResult;
@@ -34,12 +34,12 @@ namespace QComicBook
         static ImageTransformThread* get();
 
         void run();
-        
+
     public slots:
         void stop();
         void cancel();
         void addJob(ImageTransformJob *job);
- 
+
     signals:
         void jobCompleted(const ImageJobResult &);
 
@@ -48,7 +48,7 @@ namespace QComicBook
         QMutex m_condMutex;
         QWaitCondition m_reqCond;
         bool m_stopped;
-                
+
         QList<ImageTransformJob *> m_jobs;
         static ImageTransformThread *sm_thread;
     };

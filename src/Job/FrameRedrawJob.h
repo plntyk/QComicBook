@@ -25,7 +25,7 @@ namespace QComicBook
         ~FrameRedrawJob();
 
         void setImage(const QImage &img, const QRect &frame);
-        
+
         void execute();
         QImage getResult() const;
 

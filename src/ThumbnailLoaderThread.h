@@ -25,7 +25,7 @@ namespace QComicBook
     class ThumbnailLoaderThread: public LoaderThreadBase
     {
     Q_OBJECT
-            
+
     signals:
         void thumbnailLoaded(const Thumbnail &);
 
@@ -33,10 +33,10 @@ namespace QComicBook
         ThumbnailLoaderThread(bool cache=false);
         virtual ~ThumbnailLoaderThread();
         virtual void setUseCache(bool f);
-        
+
     protected:
         virtual bool process(const LoadRequest &req);
-        
+
     private:
         QMutex mtx;
         volatile bool usecache;

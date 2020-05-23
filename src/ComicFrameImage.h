@@ -29,13 +29,13 @@ namespace QComicBook
         public:
             ComicFrameImage(FrameView *parent, int w, int h);
             virtual ~ComicFrameImage();
-            
+
             void setFrame(const Page &p, const ComicFrame &f);
             void clear();
             ImageTransformJob *createRedrawJob();
             bool jobCompleted(const ImageJobResult &result);
             void propsChanged();
-            
+
         private:
             QImage *m_image;
             QRect m_frame;

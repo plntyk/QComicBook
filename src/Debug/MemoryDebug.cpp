@@ -12,7 +12,7 @@
 
 #include "MemoryDebug.h"
 #include "ComicImage.h"
- 
+
 namespace QComicBook
 {
 

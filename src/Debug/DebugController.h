@@ -24,7 +24,7 @@ namespace QComicBook
     class ContinuousPageView;
     class ContinuousPageViewDebug;
     class MemoryDebug;
-    
+
     class DebugController: public QObject
     {
         Q_OBJECT
@@ -41,7 +41,7 @@ namespace QComicBook
         void autoRefreshEvery5sec();
         void autoRefreshEvery30sec();
         void disableAutoRefresh();
-        
+
     private Q_SLOTS:
         void timerTimeout();
         void debugWindowDestroyed(QObject *object);

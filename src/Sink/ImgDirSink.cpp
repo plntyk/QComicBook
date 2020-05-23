@@ -25,7 +25,7 @@ using namespace QComicBook;
 //
 // maximum size of description file (won't load files larger than that)
 const int ImgDirSink::MAX_TEXTFILE_SIZE = 65535;
-                        
+
 ImgDirSink::ImgDirSink(bool dirs, int cacheSize): ImgSink(cacheSize), dirpath(QString()), DirReader(QDir::DirsLast|QDir::Name|QDir::IgnoreCase, 6)
 {
 }
@@ -232,7 +232,7 @@ bool ImgDirSink::timestampDiffers(int page) const
 	QFileInfo f(fname);
 	return f.lastModified() != timestamps[fname];
 }
-			
+
 bool ImgDirSink::hasModifiedFiles() const
 {
 	//
@@ -262,12 +262,12 @@ QString ImgDirSink::getPrevious() const
 }
 
 void ImgDirSink::removeThumbnails(int days)
-{       
+{
         if (days < 1)
                 return;
 
         const QDateTime currdate = QDateTime::currentDateTime();
-        
+
         QDir dir(ComicBookSettings::instance().thumbnailsDir(), "*.jpg", QDir::Unsorted, QDir::Files|QDir::NoSymLinks);
         const QStringList files = dir.entryList();
         for (QStringList::const_iterator it = files.begin(); it!=files.end(); it++)

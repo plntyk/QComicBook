@@ -32,16 +32,16 @@ namespace QComicBook
         void requestedThumbnail(int n);
         void requestedPage(int n, bool force);
         void shown();
-        
+
     protected:
         virtual void showEvent(QShowEvent *e);
-        
+
     protected slots:
         //void onOrientationChanged(Orientation o); -- nie ma w Qt4
-        
+
     public slots:
         void setThumbnail(const Thumbnail &t);
-        
+
     public:
         ThumbnailsWindow(QWidget *parent=0);
         virtual ~ThumbnailsWindow();

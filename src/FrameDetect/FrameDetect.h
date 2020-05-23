@@ -52,7 +52,7 @@ namespace QComicBook
 		void addWhiteBorders();
 		static int determineBackground(const BinarizedImage &img);
 
-		inline static void nextPoint(int &x, int &y, int pos) 
+		inline static void nextPoint(int &x, int &y, int pos)
 		{
 			switch (pos)
 			{
@@ -98,4 +98,4 @@ namespace QComicBook
     };
 }
 
-#endif 
+#endif

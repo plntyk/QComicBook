@@ -70,9 +70,9 @@ ComicMainWindow::ComicMainWindow(QWidget *parent): QMainWindow(parent), currpage
     setupUi(this);
     updateCaption();
     setAttribute(Qt::WA_DeleteOnClose);
-    
+
     cfg = &ComicBookSettings::instance();
-    
+
     printer = QSharedPointer<QPrinter>(new QPrinter());
 
     pageLoader = new PageLoaderThread();
@@ -102,7 +102,7 @@ ComicMainWindow::ComicMainWindow(QWidget *parent): QMainWindow(parent), currpage
     viewTypeActions->addAction(actionSimpleView);
     viewTypeActions->addAction(actionFrameView);
     connect(viewTypeActions, SIGNAL(triggered(QAction *)), this, SLOT(changeViewType(QAction *)));
-       
+
     actionExitFullScreen = new QAction(QString(), this);
     actionExitFullScreen->setShortcut(tr("Escape"));
     addAction(actionExitFullScreen);
@@ -125,18 +125,18 @@ ComicMainWindow::ComicMainWindow(QWidget *parent): QMainWindow(parent), currpage
     connect(actionForwardPage, SIGNAL(triggered(bool)), this, SLOT(forwardPages()));
     connect(actionFirstPage, SIGNAL(triggered(bool)), this, SLOT(firstPage()));
     connect(actionLastPage, SIGNAL(triggered(bool)), this, SLOT(lastPage()));
-    connect(actionBackwardPage, SIGNAL(triggered(bool)), this, SLOT(backwardPages())); 
+    connect(actionBackwardPage, SIGNAL(triggered(bool)), this, SLOT(backwardPages()));
     connect(actionQuit, SIGNAL(triggered(bool)), this, SLOT(close()));
     connect(actionFullscreen, SIGNAL(triggered(bool)), this, SLOT(toggleFullScreen()));
-    connect(actionPreviousPage, SIGNAL(triggered(bool)), this, SLOT(prevPage()));   
-    connect(actionMangaMode, SIGNAL(toggled(bool)), this, SLOT(toggleJapaneseMode(bool)));        
+    connect(actionPreviousPage, SIGNAL(triggered(bool)), this, SLOT(prevPage()));
+    connect(actionMangaMode, SIGNAL(toggled(bool)), this, SLOT(toggleJapaneseMode(bool)));
     connect(actionTwoPages, SIGNAL(toggled(bool)), this, SLOT(toggleTwoPages(bool)));
     connect(actionNextFrame, SIGNAL(triggered(bool)), this, SLOT(nextFrame()));
     connect(actionPreviousFrame, SIGNAL(triggered(bool)), this, SLOT(prevFrame()));
 
     //
     // Statusbar
-    statusbar = new StatusBar(this);      
+    statusbar = new StatusBar(this);
     setStatusBar(statusbar);
     connect(actionToggleStatusbar, SIGNAL(toggled(bool)), statusbar, SLOT(setVisible(bool)));
     actionToggleStatusbar->setChecked(cfg->showStatusbar());
@@ -193,7 +193,7 @@ ComicMainWindow::ComicMainWindow(QWidget *parent): QMainWindow(parent), currpage
     connect(actionToggleScrollbars, SIGNAL(toggled(bool)), this, SLOT(toggleScrollbars(bool)));
     actionToggleScrollbars->setChecked(cfg->scrollbarsVisible());
     connect(actionConfigure, SIGNAL(triggered()), this, SLOT(showConfigDialog()));
-    menuSettings->insertAction(actionToggleStatusbar, toolBar->toggleViewAction());    
+    menuSettings->insertAction(actionToggleStatusbar, toolBar->toggleViewAction());
 
     //
     // Help menu
@@ -217,7 +217,7 @@ ComicMainWindow::ComicMainWindow(QWidget *parent): QMainWindow(parent), currpage
         debugMenu->addAction(actionDebugMemory);
 
         debugMenu->addSeparator();
-        
+
         QActionGroup *debugRefreshGroup = new QActionGroup(this);
 
         QAction *actionDebugDisableRefresh = new QAction(tr("Disable auto-refresh"), this);
@@ -267,7 +267,7 @@ ComicMainWindow::ComicMainWindow(QWidget *parent): QMainWindow(parent), currpage
 	case Frame: which = actionFrameView; break;
     }
     which->setChecked(true);
-    
+
     //
     // copy all menu actions; this is needed for fullscreen mode if menubar is hidden
     addActions(menuBar()->actions());
@@ -281,10 +281,10 @@ ComicMainWindow::ComicMainWindow(QWidget *parent): QMainWindow(parent), currpage
     addAction(actionScrollDownFast);
     addAction(actionJumpDown);
     addAction(actionJumpUp);
-    
+
     lastdir = cfg->lastDir();
     menuRecentFiles->set(cfg->recentlyOpened());
-    
+
     cfg->restoreDockLayout(this);
     cfg->restoreGeometry(this);
 
@@ -295,7 +295,7 @@ ComicMainWindow::ComicMainWindow(QWidget *parent): QMainWindow(parent), currpage
 
     //connect(cfg, SIGNAL(displaySettingsChanged(const QString &)), this, SLOT(reconfigureDisplay())); ??
     enableComicBookActions(false);
-    
+
     pageLoader->start();
     frameDetect->start();
 
@@ -313,18 +313,18 @@ ComicMainWindow::~ComicMainWindow()
         ImgDirSink::removeThumbnails(cfg->thumbnailsAge());
     }
 
-    saveSettings();        
-    
+    saveSettings();
+
     frameDetect->stop();
     pageLoader->stop();
     thumbnailLoader->stop();
     pageLoader->wait();
     thumbnailLoader->wait();
-    
+
     printer.clear();
     delete pageLoader;
     delete thumbnailLoader;
-    
+
     if (sink)
     {
         sink.clear();
@@ -340,7 +340,7 @@ void ComicMainWindow::setupContextMenu()
     pageinfo->setFrameStyle(QFrame::Box | QFrame::Raised);
     QWidgetAction *actionPageInfo = new QWidgetAction(this);
     actionPageInfo->setDefaultWidget(pageinfo);
-    
+
     cmenu->addAction(actionNextPage);
     cmenu->addAction(actionPreviousPage);
     cmenu->addSeparator();
@@ -407,12 +407,12 @@ void ComicMainWindow::setupComicImageView()
     default:
         break;
     }
-    
+
     setCentralWidget(view);
     view->setFocus();
 
     reconfigureDisplay();
-    
+
     connect(actionPageTop, SIGNAL(triggered(bool)), view, SLOT(scrollToTop()));
     connect(actionPageBottom, SIGNAL(triggered(bool)), view, SLOT(scrollToBottom()));
     connect(actionScrollRight, SIGNAL(triggered(bool)), view, SLOT(scrollRight()));
@@ -420,19 +420,19 @@ void ComicMainWindow::setupComicImageView()
     connect(actionScrollRightFast, SIGNAL(triggered(bool)), view, SLOT(scrollRightFast()));
     connect(actionScrollLeftFast, SIGNAL(triggered(bool)), view, SLOT(scrollLeftFast()));
     connect(actionScrollUp, SIGNAL(triggered(bool)), view, SLOT(scrollUp()));
-    connect(actionScrollDown, SIGNAL(triggered(bool)), view, SLOT(scrollDown()));       
-    connect(actionScrollUpFast, SIGNAL(triggered(bool)), view, SLOT(scrollUpFast()));        
+    connect(actionScrollDown, SIGNAL(triggered(bool)), view, SLOT(scrollDown()));
+    connect(actionScrollUpFast, SIGNAL(triggered(bool)), view, SLOT(scrollUpFast()));
     connect(actionScrollDownFast, SIGNAL(triggered(bool)), view, SLOT(scrollDownFast()));
-    connect(actionRotateRight, SIGNAL(triggered(bool)), view, SLOT(rotateRight()));        
+    connect(actionRotateRight, SIGNAL(triggered(bool)), view, SLOT(rotateRight()));
     connect(actionRotateLeft, SIGNAL(triggered(bool)), view, SLOT(rotateLeft()));
     connect(actionNoRotation, SIGNAL(triggered(bool)), view, SLOT(resetRotation()));
     connect(actionJumpDown, SIGNAL(triggered()), view, SLOT(jumpDown()));
     connect(actionJumpUp, SIGNAL(triggered()), view, SLOT(jumpUp()));
     connect(actionLens, SIGNAL(triggered(bool)), this, SLOT(showLens(bool)));
-    
+
     connect(view, SIGNAL(bottomReached()), this, SLOT(nextPage()));
     connect(view, SIGNAL(topReached()), this, SLOT(prevPageBottom()));
-        
+
     connect(view, SIGNAL(doubleClick()), this, SLOT(nextPage()));
     view->enableScrollbars(cfg->scrollbarsVisible());
 
@@ -448,7 +448,7 @@ void ComicMainWindow::setupComicImageView()
 
     setupContextMenu();
 
-    if (sink) 
+    if (sink)
     {
          jumpToPage(currpage, true);
     }
@@ -595,7 +595,7 @@ void ComicMainWindow::toggleJapaneseMode(bool f)
 void ComicMainWindow::setPageSize(QAction *action)
 {
     Size size;
-    
+
     if (action == actionFitWidth)
     {
         size = FitWidth;
@@ -625,7 +625,7 @@ void ComicMainWindow::setLensZoom(QAction *action)
 	if (view)
 	{
 		view->setLensZoom(action->data().toDouble());
-	}	
+	}
 }
 
 void ComicMainWindow::showLens(bool f)
@@ -655,7 +655,7 @@ void ComicMainWindow::updateCaption()
     setWindowTitle(c);
 }
 
-void ComicMainWindow::recentSelected(const QString &fname) 
+void ComicMainWindow::recentSelected(const QString &fname)
 {
     QFileInfo finfo(fname);
     if (!finfo.exists())
@@ -704,7 +704,7 @@ void ComicMainWindow::sinkReady(const QString &path)
         {
             thumbnailLoader->request(0, sink->numOfImages());
         }
-        
+
         jumpToPage(currpage, true);
 
 	const bool hasdesc = (sink->getDescription().count() > 0);
@@ -730,7 +730,7 @@ void ComicMainWindow::sinkError(int code)
                 case SINKERR_ARCHEXIT: msg = tr("archive extractor exited with error"); break;
                 default: break;
         }
-        QMessageBox::critical(this, tr("QComicBook error"), tr("Error opening comicbook") + ": " + msg, 
+        QMessageBox::critical(this, tr("QComicBook error"), tr("Error opening comicbook") + ": " + msg,
                         QMessageBox::Ok, QMessageBox::NoButton);
         closeSink();
 }
@@ -1020,10 +1020,10 @@ void ComicMainWindow::showJumpToPage(const QString &number)
                 win.exec();
         }
 }
-			
+
 void ComicMainWindow::showAboutQt()
 {
-	QApplication::aboutQt();	
+	QApplication::aboutQt();
 }
 
 void ComicMainWindow::closeSink()
@@ -1116,7 +1116,7 @@ void ComicMainWindow::openPrintDialog()
     }
 }
 
-void ComicMainWindow::bookmarkSelected(QAction *action) 
+void ComicMainWindow::bookmarkSelected(QAction *action)
 {
     _DEBUG;
 
@@ -1145,7 +1145,7 @@ void ComicMainWindow::bookmarkSelected(QAction *action)
                 }
         }
 }
-			
+
 void ComicMainWindow::changeViewType(QAction *action)
 {
     _DEBUG;
@@ -1173,10 +1173,10 @@ void ComicMainWindow::saveSettings()
         cfg->saveDockLayout(this);
         cfg->lastDir(lastdir);
         cfg->recentlyOpened(menuRecentFiles->get());
-        
+
         cfg->showStatusbar(actionToggleStatusbar->isChecked());
 
-        bookmarks->save();        
+        bookmarks->save();
 }
 
 void ComicMainWindow::reconfigureDisplay()

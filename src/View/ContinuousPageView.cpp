@@ -111,7 +111,7 @@ void ContinuousPageView::recreateComicPageImages()
     }
     imgLabel.clear();
     m_ypos.reset();
-    
+
     int w = viewport()->width() - 10;
     int h = viewport()->height() - 10;
 
@@ -148,7 +148,7 @@ void ContinuousPageView::recreateComicPageImages()
                 scene->addItem(p);
             }
         }
-        
+
         m_ypos.resize(imgLabel.size());
     }
 }
@@ -188,7 +188,7 @@ void ContinuousPageView::disposeOrRequestPages()
         ComicPageImage *w = imgLabel[i];
 
         _DEBUG << "page widget:" << i << " page num:" << w->pageNumber() << " y=" << w->y() << " ypos=" << m_ypos.startCoordinate(i);
-   
+
         // if page is visible on the screen but not loaded, request it
         if (isInView(m_ypos.startCoordinate(i), m_ypos.endCoordinate(i), vy1, vy2))
         {
@@ -242,7 +242,7 @@ void ContinuousPageView::disposeOrRequestPages()
                 }
                 else
                 {
-                    delRequest(w->pageNumber(), props.twoPagesMode() && w->hasTwoPages());                   
+                    delRequest(w->pageNumber(), props.twoPagesMode() && w->hasTwoPages());
                 }
             }
         }
@@ -264,7 +264,7 @@ QList<ComicPageImage *> ContinuousPageView::findComicPageImagesInView() const
             break;
         }
     }
-    while (i < imgLabel.size() && imgLabel[i]->isInView(vy1, vy2)) 
+    while (i < imgLabel.size() && imgLabel[i]->isInView(vy1, vy2))
     {
         wlist.append(imgLabel[i]);
         ++i;
@@ -324,7 +324,7 @@ void ContinuousPageView::scrollContentsBy(int dx, int dy)
     _DEBUG << "ContinuousPageView::scrollContentsBy y=" << verticalScrollBar()->value();
     PageViewBase::scrollContentsBy(dx, dy);
     disposeOrRequestPages();
-    
+
     const int n = currentPage();
     if (n>=0)
     {
@@ -346,7 +346,7 @@ void ContinuousPageView::setImage(const Page &img1)
     if (m_requestedPage >= 0) {
         _DEBUG << "requested page =" << m_requestedPage << ", scrolling";
         verticalScrollBar()->setValue(w->y());
-        
+
         m_firstVisible = imgLabel.indexOf(findComicPageImage(m_requestedPage));
         m_firstVisibleOffset = 0;
         m_requestedPage = -1;
@@ -378,7 +378,7 @@ void ContinuousPageView::setImage(const Page &img1, const Page &img2)
 void ContinuousPageView::resizeEvent(QResizeEvent *e)
 {
     _DEBUG;
-   
+
     foreach (ComicPageImage *w, imgLabel)
     {
         w->redrawImages();
@@ -451,7 +451,7 @@ void ContinuousPageView::clear()
     delRequests();
     setNumOfPages(0);
 }
-			
+
 int ContinuousPageView::visiblePages() const
 {
     ComicPageImage *w(currentComicPageImage());
@@ -490,10 +490,10 @@ ComicPageImage *ContinuousPageView::currentComicPageImage() const
     while (i < imgLabel.size())
     {
         ComicPageImage *w = imgLabel[i];
-        
+
         const int my1 = std::max(m_ypos.startCoordinate(i), vy1);
         const int my2 = std::min(m_ypos.endCoordinate(i), vy2);
-        
+
         if (my2 <= my1)
         {
             break;

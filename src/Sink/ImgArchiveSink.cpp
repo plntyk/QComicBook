@@ -76,18 +76,18 @@ bool ImgArchiveSink::fileHandler(const QFileInfo &finfo)
                 const QString tmp = makeTempDir(finfo.absolutePath());
                 archdirs.prepend(tmp);
                 extract(fullname, tmp, extractargs, listargs);
-                
+
                 //
                 // remove cb archive we just extracted, no need to waste space
                 QDir dir(finfo.absolutePath());
                 dir.remove(fname);
                 visit(tmp);
-                
+
                 return true;
             }
             archfiles.append(fullname);
 	}
-        
+
 	return false;
 }
 
@@ -127,23 +127,23 @@ int ImgArchiveSink::extract(const QString &filename, const QString &destdir, QSt
 {
     if (extargs.size() == 0 )
 		return SINKERR_UNKNOWNFILE;
-    
+
     const QFileInfo finf(filename);
     if (!finf.isReadable())
         return SINKERR_ACCESS;
-    
+
     const QString extprg = extargs.takeFirst();
     const QString infprg = infargs.takeFirst();
-    
+
     pext->setWorkingDirectory(destdir);
-    
+
     //
     // extract archive file list first
     pinf->start(infprg, infargs);
-    
+
     if (!waitForFinished(pinf))
         return SINKERR_ARCHEXIT;
-    
+
     extcnt = 0;
     pext->start(extprg, extargs);
     return waitForFinished(pext) ? 0 : SINKERR_ARCHEXIT;

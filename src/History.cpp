@@ -31,7 +31,7 @@ History::~History()
 void History::append(const QString &txt)
 {
 	const int i = hlist.indexOf(txt);
-	
+
 	//
 	// text not found on the list - append it
 	if (i < 0)
@@ -63,7 +63,7 @@ void History::set(const QStringList &l)
 
 QString History::first()
 {
-	return hlist.first(); 
+	return hlist.first();
 }
 
 QStringList History::getAll() const

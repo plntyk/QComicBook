@@ -27,25 +27,25 @@ Bookmark::Bookmark(const QString &cbname, int cbpage): name(cbname), page(cbpage
 Bookmark::~Bookmark()
 {
 }
-		
+
 const QString& Bookmark::getName() const
-{ 
+{
 	return name;
 }
 
-int Bookmark::getPage() const 
+int Bookmark::getPage() const
 {
-	return page; 
+	return page;
 }
 
 QAction* Bookmark::getId() const
 {
-	return id; 
+	return id;
 }
 
 void Bookmark::setName(const QString &cbname)
 {
-	name = cbname; 
+	name = cbname;
 }
 
 void Bookmark::setPage(int cbpage)

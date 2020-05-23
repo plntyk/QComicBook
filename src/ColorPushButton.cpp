@@ -32,7 +32,7 @@ void ColorPushButton::setColor(const QColor &c)
 	color = c;
 	update();
 }
-			
+
 void ColorPushButton::paintEvent(QPaintEvent *e)
 {
 	QPainter p(this);

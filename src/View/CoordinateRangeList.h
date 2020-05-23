@@ -52,20 +52,20 @@ namespace QComicBook
         m_start.clear();
         m_end.clear();
     }
-    
+
     template <typename T>
     void CoordinateRangeList<T>::resize(int n)
     {
         m_start.resize(n);
         m_end.resize(n);
     }
-    
+
     template <typename T>
     T& CoordinateRangeList<T>::startCoordinate(unsigned int index)
     {
         return m_start[index];
     }
-    
+
     template <typename T>
     const T& CoordinateRangeList<T>::startCoordinate(unsigned int index) const
     {
@@ -77,7 +77,7 @@ namespace QComicBook
     {
         return m_end[index];
     }
-    
+
     template <typename T>
     const T& CoordinateRangeList<T>::endCoordinate(unsigned int index) const
     {

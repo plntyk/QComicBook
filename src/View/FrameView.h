@@ -27,13 +27,13 @@ namespace QComicBook
     class FrameView: public PageViewBase
     {
         Q_OBJECT
-        
+
     public:
         FrameView(QWidget *parent, int physicalPages, const ViewProperties& props);
         virtual ~FrameView();
-        
+
         virtual void resizeEvent(QResizeEvent *e);
-        
+
     public Q_SLOTS:
         virtual void setImage(const Page &img1);
         virtual void setImage(const Page &img1, const Page &img2);
@@ -49,10 +49,10 @@ namespace QComicBook
         virtual int viewWidth() const;
         virtual int currentPage() const;
         void gotoFrame(int n);
-        
+
     protected Q_SLOTS:
         void jobCompleted(const ImageJobResult &result);
-                
+
     protected:
         int m_currentPage;
         int m_currentFrame;

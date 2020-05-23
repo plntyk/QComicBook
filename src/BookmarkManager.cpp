@@ -25,7 +25,7 @@ BookmarkManager::BookmarkManager(QWidget *parent, QSharedPointer<Bookmarks> b): 
     setupUi(this);
 
     initBookmarkView();
-    
+
     connect(lview, SIGNAL(itemSelectionChanged()), this, SLOT(selectionChanged()));
     connect(b_remsel, SIGNAL(clicked()), this, SLOT(removeSelected()));
     connect(b_selinv, SIGNAL(clicked()), this, SLOT(selectInvalid()));
@@ -51,7 +51,7 @@ void BookmarkManager::initBookmarkView()
 	lview->clear();
 	invalid.clear();
 	QList<Bookmark> blist = bookmarks->get();
-	foreach (Bookmark bk, blist) 
+	foreach (Bookmark bk, blist)
 	{
 		QTreeWidgetItem *item = new QTreeWidgetItem(lview);
 		item->setText(0, bk.getName());

@@ -106,7 +106,7 @@ void ComicImage::recalcScaledSize()
         totalHeight = m_sourceSize.width();
     }
     Size size = props.size();
-    
+
     const double hRatio = static_cast<double>(viewH) / totalHeight;
     const double wRatio = static_cast<double>(viewW) / totalWidth;
 
@@ -140,20 +140,20 @@ void ComicImage::recalcScaledSize()
         pixmapWidth = static_cast<int>(static_cast<double>(ratio) * totalWidth);
         pixmapHeight = static_cast<int>(static_cast<double>(ratio) * totalHeight);
     }
-    
+
     xoff = (viewW - pixmapWidth) / 2;
     yoff = props.continuousScrolling() ? 0 : (viewH - pixmapHeight) / 2;
-    
+
     prepareGeometryChange();
 
     m_scaledSize = QSize(pixmapWidth, pixmapHeight);
-    
+
     if (xoff < 0)
         xoff = 0;
     if (yoff < 0)
         yoff = 0;
-	
-    rmtx.reset();   
+
+    rmtx.reset();
     if (props.angle() > 0)
     {
         if (props.angle() == 1)
@@ -164,11 +164,11 @@ void ComicImage::recalcScaledSize()
             rmtx.translate(m_scaledSize.width(), m_scaledSize.height());
         rmtx.rotate(static_cast<double>(props.angle()) * 90.0f);
     }
-    
+
     rmtx.scale(static_cast<double>(pixmapWidth)/totalWidth, static_cast<double>(pixmapHeight)/totalHeight);
-	
+
     //setContentsMargins(xoff, yoff, 0, 0);
-    //setFixedSize(m_scaledSize.width() + 2*xoff, m_scaledSize.height() + 2*yoff);  
+    //setFixedSize(m_scaledSize.width() + 2*xoff, m_scaledSize.height() + 2*yoff);
 
     requestRedraw(m_scaledSize, rmtx);
 

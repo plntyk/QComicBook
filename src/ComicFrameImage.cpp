@@ -40,7 +40,7 @@ void ComicFrameImage::setFrame(const Page &p, const ComicFrame &f)
     m_image = new QImage(p.getImage());
     m_frame = QRect(f.xPos(), f.yPos(), f.width(), f.height());
     m_framekey = ((f.xPos() & 0xffff) << 16) | (f.yPos() & 0xffff);
-    
+
     setSourceSize(f.width(), f.height());
 }
 
@@ -75,7 +75,7 @@ void ComicFrameImage::clear()
 	m_image = 0;
 	dispose();
 }
-			
+
 void ComicFrameImage::propsChanged()
 {
     _DEBUG;

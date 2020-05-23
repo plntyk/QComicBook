@@ -27,7 +27,7 @@ AboutDialog::AboutDialog(QWidget *parent, const QString &caption, const QString 
     setText(text);
     if (!logo.isNull())
         about_logo->setPixmap(logo);
-    
+
     connect(bclose, SIGNAL(clicked()), this, SLOT(accept()));
 }
 

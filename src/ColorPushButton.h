@@ -23,7 +23,7 @@ class ColorPushButton: public QPushButton
 		ColorPushButton(const QString &text, QWidget *parent = 0);
 
 		QColor getColor() const;
-	
+
 	public slots:
 		void setColor(const QColor &c);
 

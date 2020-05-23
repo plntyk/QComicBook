@@ -25,7 +25,7 @@ SystemInfoDialog::SystemInfoDialog(QWidget *parent): QDialog(parent)
 void SystemInfoDialog::updateInfoText()
 {
     QString text;
-    
+
     QList<ArchiverStatus> supported, unsupported;
     const QList<ArchiverHint> hints(ArchiversConfiguration::instance().getHints());
 
@@ -47,7 +47,7 @@ void SystemInfoDialog::updateInfoText()
         text.append("<h2>");
         text.append(tr("Supported archivers"));
         text.append("</h2>");
-    
+
         text.append("<table border=1 cellspacing=0 cellpadding=5 width=100%>");
         text.append("<tr>");
         text.append("<th width=30%>");

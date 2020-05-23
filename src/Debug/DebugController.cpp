@@ -94,7 +94,7 @@ void DebugController::disableAutoRefresh()
 {
     m_timer->stop();
 }
-    
+
 void DebugController::timerTimeout()
 {
     if (m_debugMemory) {

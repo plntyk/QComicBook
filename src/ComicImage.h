@@ -33,23 +33,23 @@ namespace QComicBook
         public:
             ComicImage(PageViewBase *parent);
             virtual ~ComicImage();
-            
+
             virtual void dispose();
             virtual bool isDisposed() const;
-            
+
             bool isInView(int vy1, int vy2) const;
             void setSourceSize(int w, int h);
             QSize getSourceSize() const;
             QSize getScaledSize() const;
             const QPixmap* pixmap() const;
             QRectF boundingRect() const;
-            
+
             void requestRedraw();
             PageViewBase* view() const;
             void recalcScaledSize();
             int width() const;
             int height() const;
-            
+
             virtual void propsChanged() = 0;
 
         protected:

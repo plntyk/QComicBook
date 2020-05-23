@@ -19,7 +19,7 @@ namespace QComicBook
 {
 
 	//! Simple Comic Frame comparer.
-	/*! Sorts frames left-right or right-left, top-bottom based on X & Y coordinates. 
+	/*! Sorts frames left-right or right-left, top-bottom based on X & Y coordinates.
 	 *  Supports tolerance when comparing Y coordinates.
 	 */
 	class CompareFrames

@@ -53,13 +53,13 @@ int main(int argc, char *argv[])
 
 	ComicBookSettings::instance().load();
 
-	
+
 	if (!ComicBookSettings::instance().checkDirs())
         {
 		QMessageBox::critical(NULL, errcaption, ComicMainWindow::tr("Can't initialize QComicBook directories"),
 				QMessageBox::Ok, QMessageBox::NoButton);
         }
-	
+
 	ComicMainWindow *win = new ComicMainWindow(NULL);
 	//app.setMainWidget(win);
 	win->show();
@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
 	//
 	// command line argument
 	if (app.arguments().size() > 1)
-	{ 
+	{
 		win->open(app.arguments().at(1));
 	}
 	else

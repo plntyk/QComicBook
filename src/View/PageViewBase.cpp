@@ -43,7 +43,7 @@ PageViewBase::PageViewBase(QWidget *parent, int physicalPages, const ViewPropert
 
     scene = new QGraphicsScene(this);
     setScene(scene);
-   
+
 //    setAlignment(Qt::AlignHCenter);
     connect(ImageTransformThread::get(), SIGNAL(jobCompleted(const ImageJobResult &)), this, SLOT(jobCompleted(const ImageJobResult &)));
 
@@ -152,7 +152,7 @@ void PageViewBase::mouseReleaseEvent(QMouseEvent *e)
 {
         lx = -1;
 	ly = -1;
-        
+
         if (lens)
         {
             setCursor(Qt::BlankCursor); // hide cursor if lens visible
@@ -222,7 +222,7 @@ void PageViewBase::scrollUpFast()
 }
 
 void PageViewBase::scrollDownFast()
-{       
+{
         if (onBottom())
         {
                 emit bottomReached();
@@ -259,7 +259,7 @@ void PageViewBase::jumpUp()
     {
         emit topReached();
     }
-    else 
+    else
     {
         scrollByDelta(0, -static_cast<int>(JUMP_FACTOR * viewport()->height()));
     }
@@ -276,7 +276,7 @@ void PageViewBase::jumpDown()
         scrollByDelta(0, static_cast<int>(JUMP_FACTOR * viewport()->height()));
     }
 }
-			
+
 void PageViewBase::nextFrame()
 {
 }
@@ -348,10 +348,10 @@ void PageViewBase::setSmallCursor(bool f)
     {
         static unsigned char bmp_bits[4*32];
         static unsigned char msk_bits[4*32];
-        
+
         if (smallcursor)
             return;
-        
+
         for (int i=0; i<4*32; i++)
         {
             bmp_bits[i] = msk_bits[i] = 0;
@@ -439,7 +439,7 @@ int PageViewBase::nextPage(int page) const
     }
     else
     {
-        ++page;    
+        ++page;
     }
     if (page >= m_physicalPages)
     {
@@ -500,13 +500,13 @@ void PageViewBase::updateSceneRect()
 
     //
     // find items bounding rect, but skip lens item if present.
-    // this is the same QGraphicsScene::itemsBoundingRect(), except for it skips lens. 
+    // this is the same QGraphicsScene::itemsBoundingRect(), except for it skips lens.
     foreach (QGraphicsItem *it, items())
     {
         if (it != lens)
         {
             const QRectF itbr(it->boundingRect());
-                  
+
             if (x1 > it->x())
             {
                 x1 = it->x();

@@ -34,7 +34,7 @@ ComicBookInfo::ComicBookInfo(QWidget *parent, ImgSink &sink, const QFont &f): QD
 
 	setupDescriptionTabs(sink);
 	//setupGeneralTab(sink);
-	
+
 	//
 	// setup buttons
 	QDialogButtonBox *buttons = new QDialogButtonBox(QDialogButtonBox::Close, Qt::Horizontal, this);
@@ -44,7 +44,7 @@ ComicBookInfo::ComicBookInfo(QWidget *parent, ImgSink &sink, const QFont &f): QD
 
 void ComicBookInfo::setupDescriptionTabs(const ImgSink &sink)
 {
-	const QStringList desc = sink.getDescription(); 
+	const QStringList desc = sink.getDescription();
 	QStringList::const_iterator it = desc.begin();
 	while (it != desc.end())
 	{

@@ -24,7 +24,7 @@ namespace QComicBook
         JobKey(int subsystem, int uniqKey);
         int getSubsystem() const;
         int getKey() const;
-   
+
         bool operator==(const JobKey &other) const;
 
     private:

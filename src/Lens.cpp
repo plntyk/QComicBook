@@ -74,7 +74,7 @@ QVariant Lens::itemChange(GraphicsItemChange change, const QVariant &value)
     if (scene() && (change == ItemVisibleChange || (change == ItemPositionChange && (m_time == NULL || m_time->elapsed() > m_delay))))
     {
         QPointF newPos = (change == ItemVisibleChange) ? pos() : value.toPointF(); //lens global position (scroll area coordinates)
- 
+
 	QList<QGraphicsItem*> items = scene()->collidingItems(this, Qt::IntersectsItemBoundingRect);
 	if (items.size() == 0)
 	{
@@ -88,15 +88,15 @@ QVariant Lens::itemChange(GraphicsItemChange change, const QVariant &value)
                 }
 
                 //
-                // clear lens; this is a bit inefficient, but easy. 
-                // optimal way would be to only clear strips that 
+                // clear lens; this is a bit inefficient, but easy.
+                // optimal way would be to only clear strips that
                 // won't be painted.
                 m_pixmap->fill(m_background);
 
 		QPainter painter(m_pixmap.data());
-		
+
 		QStyleOptionGraphicsItem so;
-			
+
 		QRectF tbr(boundingRect());
 		//
 		// translate bounding rect coordinates to global coords
@@ -125,12 +125,12 @@ QVariant Lens::itemChange(GraphicsItemChange change, const QVariant &value)
 			ins.translate(-it->x(), -it->y());
 			so.exposedRect = ins;
 			_DEBUG << "exposed" << so.exposedRect;
-		
+
 			painter.resetTransform();
 			painter.translate(-ins.x() + xoff, -ins.y() + yoff);
 
 			it->paint(&painter, &so);
-		}	
+		}
 		painter.end();
 
                 if (m_time)

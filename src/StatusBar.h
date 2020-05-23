@@ -25,7 +25,7 @@ namespace QComicBook
     class StatusBar: public QStatusBar
     {
         Q_OBJECT
-            
+
             private:
 			QLabel *page;
 			QLabel *imginfo;

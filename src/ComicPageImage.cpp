@@ -87,7 +87,7 @@ void ComicPageImage::dispose()
     ComicImage::dispose();
     deletePages();
 }
-		
+
 bool ComicPageImage::isDisposed() const
 {
     return ComicImage::isDisposed() || (m_image[0] == NULL);
@@ -177,7 +177,7 @@ void ComicPageImage::redrawImages()
         totalWidth = m_image[0]->width() + m_image[1]->width();
         totalHeight = std::max(m_image[0]->height(), m_image[1]->height());
     }
-    
+
     setSourceSize(totalWidth, totalHeight);
 }
 
@@ -195,4 +195,4 @@ int ComicPageImage::numOfPages() const
 void ComicPageImage::propsChanged()
 {
     redrawImages();
-} 
+}

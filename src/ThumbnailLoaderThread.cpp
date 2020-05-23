@@ -14,7 +14,7 @@
 #include "Sink/ImgDirSink.h"
 #include "Thumbnail.h"
 #include "ComicBookDebug.h"
- 
+
 using namespace QComicBook;
 
 ThumbnailLoaderThread::ThumbnailLoaderThread(bool cache): LoaderThreadBase(), usecache(cache)
@@ -28,7 +28,7 @@ ThumbnailLoaderThread::~ThumbnailLoaderThread()
 bool ThumbnailLoaderThread::process(const LoadRequest &req)
 {
     if (req.twoPages)
-    {                
+    {
         qWarning() << "thumbnail request for two pages";
     }
     else

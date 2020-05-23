@@ -22,7 +22,7 @@ class QTabWidget;
 namespace QComicBook
 {
 	class ImgSink;
-	
+
 	class ComicBookInfo: public QDialog
 	{
 	    Q_OBJECT

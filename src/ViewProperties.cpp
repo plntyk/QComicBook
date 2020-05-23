@@ -47,7 +47,7 @@ void ViewProperties::setAngle(Rotation r, bool notify)
 {
     if (r == None && m_data.angle == 0)
         return;
-    
+
     if (r == Right)
         ++m_data.angle;
     else if (r == Left)

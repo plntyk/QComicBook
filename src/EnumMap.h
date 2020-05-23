@@ -23,7 +23,7 @@ namespace Utility
                 T val;
         };
 
-        template <class T> const QString& convert(const EnumMap<T> *tab, const T &v) 
+        template <class T> const QString& convert(const EnumMap<T> *tab, const T &v)
         {
                 for (int i=0; tab[i].str!=QString(); i++)
                         if (tab[i].val == v)
@@ -31,7 +31,7 @@ namespace Utility
                 return tab[0].str;
         }
 
-        template <class T> const T& convert(const EnumMap<T> *tab, const QString &s) 
+        template <class T> const T& convert(const EnumMap<T> *tab, const QString &s)
         {
                 for (int i=0; tab[i].str!=QString(); i++)
                         if (tab[i].str == s)

@@ -42,13 +42,13 @@ namespace QComicBook
         bool hasTwoPages() const;
         int numOfPages() const;
         QSize estimatedSize() const;
-		
+
         virtual void propsChanged();
         bool jobCompleted(const ImageJobResult &result);
 
     protected:
         void deletePages();
-        
+
     private:
         int m_pageNum; //number of physical page
         bool m_twoPages; //whether this widget holds one or two pages; this is independent from current two pages mode setting

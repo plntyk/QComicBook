@@ -103,7 +103,7 @@ ComicBookSettings::~ComicBookSettings()
 
 bool ComicBookSettings::checkDirs()
 {
-	m_dirsok = false; 
+	m_dirsok = false;
 	m_bkpath = QStandardPaths::writableLocation(QStandardPaths::DataLocation);
 
 	QDir dir(m_bkpath);
@@ -165,7 +165,7 @@ void ComicBookSettings::load()
 	m_cfg->endGroup();
 	m_cfg->beginGroup(GRP_RUNTIME);
 		m_lastdir = m_cfg->value(OPT_LASTDIR, QString()).toString();
-		m_recent = m_cfg->value(OPT_RECENT).toStringList(); 
+		m_recent = m_cfg->value(OPT_RECENT).toStringList();
         m_cfg->endGroup();
 	m_cfg->beginGroup(GRP_MISC);
 		m_donationdlg = m_cfg->value(OPT_DONATION, true).toBool();
@@ -563,7 +563,7 @@ void ComicBookSettings::tmpDir(const QString &dir)
         m_cfg->setValue(GRP_MISC OPT_TMPDIR, m_tmpdir = dir);
     }
 }
-			
+
 void ComicBookSettings::showDonationDialog(bool f)
 {
 	if (f != m_donationdlg)

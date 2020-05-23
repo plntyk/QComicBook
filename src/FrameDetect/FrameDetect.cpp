@@ -48,7 +48,7 @@ void FrameDetect::addWhiteBorders()
 	{
 		bimg->at(x, 0) = bimg->at(x, bimg->height()-1) = bcolor;
 	}
-	
+
 	for (int y=1; y<bimg->height()-1; y++)
 	{
 		bimg->at(0, y) = bimg->at(bimg->width()-1, y) = bcolor;
@@ -132,7 +132,7 @@ FrameDetect::Point FrameDetect::tracer(LabelData *ldata, int x, int y, int &pos,
 	}
 	return Point(-1, -1);
 }
-    
+
 void FrameDetect::contourTracking(LabelData *ldata, int x, int y, int initialPos, int lbl)
 {
 	int d(initialPos);
@@ -154,7 +154,7 @@ void FrameDetect::contourTracking(LabelData *ldata, int x, int y, int initialPos
 	while (startReached == false || tFollowsS == false)
 	{
 		d = (d + 6)%8; // previous contour: d + 4; next initial pos: d + 2
-			
+
 		const Point f(tracer(ldata, x, y, d, lbl));
 		if (f.x < 0)
 		{
@@ -239,7 +239,7 @@ int FrameDetect::determineBackground(const BinarizedImage &img)
 			{
 				++white;
 			}
-			
+
 			if (img.at(img.width() - x - 1, y) == 0)
 			{
 				++black;
@@ -285,7 +285,7 @@ ComicFrameList FrameDetect::frames(LabelData *ldata) const
 			}
 		}
 	}
-	
+
 	ComicFrameList frms(page, ldata->width(), ldata->height());
 	for (int lbl=0; lbl<label; lbl++)
 	{

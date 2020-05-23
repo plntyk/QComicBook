@@ -25,18 +25,18 @@ namespace QComicBook
     class PageLoaderThread: public LoaderThreadBase
     {
         Q_OBJECT
-            
+
         signals:
             void pageLoaded(const Page &);
             void pageLoaded(const Page &, const Page &);
-        
+
         public:
             PageLoaderThread();
             virtual ~PageLoaderThread();
-        
+
         protected:
             virtual bool process(const LoadRequest &req);
-        
+
     };
 }
 

@@ -22,7 +22,7 @@ JobKey::JobKey(int subsystem, int uniqKey): m_subsys(subsystem), m_key(uniqKey)
 {
 }
 
-int JobKey::getSubsystem() const 
+int JobKey::getSubsystem() const
 {
     return m_subsys;
 }

@@ -20,7 +20,7 @@
 class QPixmap;
 class QMenu;
 class QListWidgetItem;
- 
+
 namespace QComicBook
 {
 	class Thumbnail;

@@ -36,7 +36,7 @@ namespace QComicBook
 
     protected slots:
         void recentSelected(QAction *a);
- 
+
     signals:
         void selected(const QString &fileName);
         void cleanupRequest();
